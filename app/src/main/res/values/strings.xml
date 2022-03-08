@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">KoinFragmentHomework</string>
+    <string name="Order">Ваш заказ</string>
+    <string name="SendOrder">Отправить заказ</string>
+    <string name="SecondName">Фамилия</string>
+    <string name="FirstName">Имя</string>
+    <string name="Number">Телефон</string>
+    <string name="next">Далее</string>
+    <string name="graphic_card">Видеокарта</string>
+    <string name="monitor">Монитор</string>
+    <string name="os">OC</string>
+    <string name="mouse">Мышь</string>
+    <string name="keyboard">Клавиатура</string>
 </resources>

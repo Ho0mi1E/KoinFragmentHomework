@@ -5,11 +5,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.koinfragmenthomework.domain.models.GeneralItem
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 
-class AdapterRecycler(val bond : Bonding) : RecyclerView.Adapter<ShopViewHolder>() {
+class AdapterRecycler(val bond: Bonding) : RecyclerView.Adapter<ShopViewHolder>() {
 
-    private var list :List<GeneralItem> = emptyList()
+    private var list: List<GeneralItem> = emptyList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopViewHolder {
-        return ShopViewHolder.newInstance(parent,bond)
+        return ShopViewHolder.newInstance(parent, bond)
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
@@ -20,10 +21,8 @@ class AdapterRecycler(val bond : Bonding) : RecyclerView.Adapter<ShopViewHolder>
         return list.size
     }
 
-
-    fun submitList(data: List<GeneralItem>){
+    fun submitList(data: List<GeneralItem>) {
         list = data
         notifyDataSetChanged()
-
     }
 }

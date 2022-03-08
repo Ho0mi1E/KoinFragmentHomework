@@ -10,7 +10,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_margin="70dp"
-        android:hint="Фамилия"
+        android:hint="@string/SecondName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_margin="70dp"
-        android:hint="Имя"
+        android:hint="@string/FirstName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,20 +32,21 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_margin="70dp"
-        android:hint="Телефон"
+        android:hint="@string/Number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editName" />
 
     <Button
-        android:id="@+id/dataBtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/editNumber"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/btnData"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Далее"
-        android:layout_margin="50dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf= "@+id/editNumber"
+        android:layout_margin="50dp"
+        android:text="@string/next"
+        android:textSize="30sp"/>
 
 
 
