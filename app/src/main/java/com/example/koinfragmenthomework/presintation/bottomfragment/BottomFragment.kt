@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.koinfragmenthomework.R
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.CommonClass
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 import com.example.koinfragmenthomework.presintation.recycler.AdapterRecycler
-import com.example.koinfragmenthomework.presintation.viewModel.OSViewModel
+import com.example.koinfragmenthomework.presintation.viewModel.CommonViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottomsheet.*
 
-class BottomFragment<E : OSViewModel>(private val viewModel: E, bond: Bonding) :
+
+class BottomFragment<E : CommonViewModel<T>,T: CommonClass>(private val viewModel: E, bond: Bonding<T>) :
     BottomSheetDialogFragment() {
     companion object {
         const val TAG = "BOTTOM"
@@ -22,8 +23,8 @@ class BottomFragment<E : OSViewModel>(private val viewModel: E, bond: Bonding) :
     private val adapter by lazy { AdapterRecycler(bonded) }
 
     private val bonded by lazy {
-        object : Bonding {
-            override fun bonding(item: GeneralItem) {
+        object : Bonding<T> {
+            override fun bonding(item: T) {
                 dismiss()
                 bond.bonding(item)
             }

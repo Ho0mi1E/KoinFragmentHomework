@@ -1,7 +1,7 @@
 package com.example.koinfragmenthomework.domain.interactors
 
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.OsForView
 
 interface OSInteractor {
-    fun putOS(): List<GeneralItem>
+    fun putOS(): List<OsForView>
 }

@@ -1,7 +1,7 @@
 package com.example.koinfragmenthomework.domain.interactors
 
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.MonitorForView
 
 interface MonitorInteractor {
-    fun putMonitor(): List<GeneralItem>
+    fun putMonitor(): List<MonitorForView>
 }

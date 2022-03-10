@@ -3,7 +3,7 @@ package com.example.koinfragmenthomework.presintation.fragments
 import androidx.fragment.app.Fragment
 import com.example.koinfragmenthomework.R
 import com.example.koinfragmenthomework.presintation.viewModel.SharedViewModel
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.OsForView
 import com.example.koinfragmenthomework.openFragment
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 import com.example.koinfragmenthomework.presintation.bottomfragment.BottomFragment
@@ -26,8 +26,8 @@ class OSFragment : Fragment(R.layout.fragment_oc) {
     private val sharedViewModel: SharedViewModel by sharedViewModel()
 
 
-    private val bond = object : Bonding {
-        override fun bonding(item: GeneralItem) {
+    private val bond = object : Bonding<OsForView> {
+        override fun bonding(item: OsForView) {
             editOC.setText(item.info)
         }
     }
@@ -50,7 +50,7 @@ class OSFragment : Fragment(R.layout.fragment_oc) {
             if (editOC.text.isEmpty()) {
                 showToast("Выберите OS")
             } else {
-                sharedViewModel.putOS(GeneralItem(editOC.text.toString()))
+                sharedViewModel.putOS(OsForView(editOC.text.toString()))
                 requireActivity().apply {
                     openFragment(GraphicFragment.TAG, R.id.container, GraphicFragment.newInstance())
                 }

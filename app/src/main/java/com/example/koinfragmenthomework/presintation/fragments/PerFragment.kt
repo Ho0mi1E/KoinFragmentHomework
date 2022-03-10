@@ -22,8 +22,9 @@ class PerFragment : Fragment(R.layout.fragment_peripherals) {
 
     override fun onStart() {
         super.onStart()
-        checkBox()
+
         btnPer.setOnClickListener {
+            checkBox()
             requireActivity().openFragment(
                 CheckFragment.TAG,
                 R.id.container,
@@ -33,8 +34,8 @@ class PerFragment : Fragment(R.layout.fragment_peripherals) {
     }
 
     private fun checkBox() {
-        val keyBoard = if (keyboard.isChecked) NO else YES
-        val mouseText = if (mouse.isChecked) NO else YES
+        val keyBoard = if (keyboard.isChecked) YES else NO
+        val mouseText = if (mouse.isChecked) YES else NO
         val check = CheckBox(keyBoard, mouseText)
         sharedViewModel.putCheckBox(check)
     }

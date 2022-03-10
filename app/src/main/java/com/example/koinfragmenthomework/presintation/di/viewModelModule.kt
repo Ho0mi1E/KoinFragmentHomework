@@ -12,7 +12,7 @@ val viewModelModule = module {
 
     viewModel{OSViewModel(interactor = get())}
 
-    viewModel{GraphicViewModel(interactor = get(), osInteractor = get())}
+    viewModel{GraphicViewModel(interactor = get())}
 
-    viewModel{MonitorViewModel(interactor = get(), osInteractor = get())}
+    viewModel{MonitorViewModel(interactor = get())}
 }

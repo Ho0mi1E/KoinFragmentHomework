@@ -1,3 +1,3 @@
 package com.example.koinfragmenthomework.domain.models
 
-data class GeneralItem(val info:String)
+ abstract class CommonClass(open val info: String)

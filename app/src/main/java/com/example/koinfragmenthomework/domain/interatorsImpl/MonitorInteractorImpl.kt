@@ -1,13 +1,13 @@
 package com.example.koinfragmenthomework.domain.interatorsImpl
 
 import com.example.koinfragmenthomework.domain.interactors.MonitorInteractor
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.MonitorForView
 import com.example.koinfragmenthomework.domain.repositories.MonitorRepository
 
 class MonitorInteractorImpl(val repository : MonitorRepository) : MonitorInteractor {
-    override fun putMonitor(): List<GeneralItem> {
+    override fun putMonitor(): List<MonitorForView> {
         return repository.getMonitor().map { monitor ->
-            GeneralItem("${monitor.name} ${monitor.model} ${monitor.series}")
+            MonitorForView("${monitor.name} ${monitor.model} ${monitor.series}")
         }
     }
 }

@@ -3,7 +3,7 @@ package com.example.koinfragmenthomework.presintation.fragments
 import androidx.fragment.app.Fragment
 import com.example.koinfragmenthomework.R
 import com.example.koinfragmenthomework.presintation.viewModel.SharedViewModel
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.MonitorForView
 import com.example.koinfragmenthomework.openFragment
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 import com.example.koinfragmenthomework.presintation.bottomfragment.BottomFragment
@@ -19,8 +19,8 @@ class MonitorFragment : Fragment(R.layout.fragment_monitor) {
         fun newInstance() = MonitorFragment()
     }
 
-    private val bond = object : Bonding {
-        override fun bonding(item: GeneralItem) {
+    private val bond = object : Bonding<MonitorForView> {
+        override fun bonding(item: MonitorForView) {
             editMonitor.setText(item.info)
         }
     }
@@ -47,7 +47,7 @@ class MonitorFragment : Fragment(R.layout.fragment_monitor) {
             if (editMonitor.text.isEmpty()) {
                 showToast("Выберите Монитор")
             } else {
-                sharedViewModel.putMonitor(GeneralItem(editMonitor.text.toString()))
+                sharedViewModel.putMonitor(MonitorForView(editMonitor.text.toString()))
                 requireActivity().apply {
                     openFragment(PerFragment.TAG, R.id.container, PerFragment.newInstance())
 

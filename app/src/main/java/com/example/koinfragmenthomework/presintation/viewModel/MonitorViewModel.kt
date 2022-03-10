@@ -3,13 +3,12 @@ package com.example.koinfragmenthomework.presintation.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.koinfragmenthomework.domain.interactors.MonitorInteractor
-import com.example.koinfragmenthomework.domain.interactors.OSInteractor
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.MonitorForView
 
-class MonitorViewModel(val interactor: MonitorInteractor, osInteractor: OSInteractor) :
-    OSViewModel(osInteractor) {
-    override val data: LiveData<List<GeneralItem>> get() = _monitor
-    private val _monitor = MutableLiveData<List<GeneralItem>>()
+class MonitorViewModel(val interactor: MonitorInteractor) :
+CommonViewModel<MonitorForView>(){
+    override val data: LiveData<List<MonitorForView>> get() = _monitor
+    private val _monitor = MutableLiveData<List<MonitorForView>>()
 
     init {
         load()

@@ -3,7 +3,7 @@ package com.example.koinfragmenthomework.presintation.fragments
 import androidx.fragment.app.Fragment
 import com.example.koinfragmenthomework.R
 import com.example.koinfragmenthomework.presintation.viewModel.SharedViewModel
-import com.example.koinfragmenthomework.domain.models.GeneralItem
+import com.example.koinfragmenthomework.domain.models.GraphicCardForView
 import com.example.koinfragmenthomework.openFragment
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 import com.example.koinfragmenthomework.presintation.bottomfragment.BottomFragment
@@ -19,8 +19,8 @@ class GraphicFragment : Fragment(R.layout.fragment_graphic) {
         fun newInstance() = GraphicFragment()
     }
 
-    private val bond = object : Bonding {
-        override fun bonding(item: GeneralItem) {
+    private val bond = object : Bonding<GraphicCardForView> {
+        override fun bonding(item: GraphicCardForView) {
             editGraphic.setText(item.info)
         }
     }
@@ -46,7 +46,7 @@ class GraphicFragment : Fragment(R.layout.fragment_graphic) {
             if (editGraphic.text.isEmpty()) {
                 showToast("Выберите Видеокарту")
             } else {
-                sharedViewModel.putGraphic(GeneralItem(editGraphic.text.toString()))
+                sharedViewModel.putGraphic(GraphicCardForView(editGraphic.text.toString()))
                 requireActivity().apply {
                     openFragment(MonitorFragment.TAG, R.id.container, MonitorFragment.newInstance())
                 }

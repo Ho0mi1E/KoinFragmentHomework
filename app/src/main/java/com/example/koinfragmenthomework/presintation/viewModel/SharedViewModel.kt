@@ -3,23 +3,21 @@ package com.example.koinfragmenthomework.presintation.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.koinfragmenthomework.domain.models.CheckBox
-import com.example.koinfragmenthomework.domain.models.GeneralItem
-import com.example.koinfragmenthomework.domain.models.User
+import com.example.koinfragmenthomework.domain.models.*
 
 class SharedViewModel : ViewModel() {
 
     val user: LiveData<User> get() = _user
     private val _user = MutableLiveData<User>()
 
-    val operationSystem: LiveData<GeneralItem> get() = _os
-    private val _os = MutableLiveData<GeneralItem>()
+    val operationSystem: LiveData<OsForView> get() = _os
+    private val _os = MutableLiveData<OsForView>()
 
-    val monitor: LiveData<GeneralItem> get() = _monitor
-    private val _monitor = MutableLiveData<GeneralItem>()
+    val monitor: LiveData<MonitorForView> get() = _monitor
+    private val _monitor = MutableLiveData<MonitorForView>()
 
-    val graphic: LiveData<GeneralItem> get() = _graphic
-    private val _graphic = MutableLiveData<GeneralItem>()
+    val graphic: LiveData<GraphicCardForView> get() = _graphic
+    private val _graphic = MutableLiveData<GraphicCardForView>()
 
     val per: LiveData<CheckBox> get() = _per
     private val _per = MutableLiveData<CheckBox>()
@@ -28,11 +26,11 @@ class SharedViewModel : ViewModel() {
         _user.value = user
     }
 
-    fun putOS(os: GeneralItem) {
+    fun putOS(os: OsForView) {
         _os.value = os
     }
 
-    fun putMonitor(monitor: GeneralItem) {
+    fun putMonitor(monitor: MonitorForView) {
         _monitor.value = monitor
     }
 
@@ -40,7 +38,7 @@ class SharedViewModel : ViewModel() {
         _per.value = checkBox
     }
 
-    fun putGraphic(graphic: GeneralItem) {
+    fun putGraphic(graphic: GraphicCardForView) {
         _graphic.value = graphic
     }
 }

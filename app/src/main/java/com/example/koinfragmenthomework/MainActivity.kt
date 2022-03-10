@@ -1,9 +1,7 @@
-package com.example.koinfragmenthomework.presintation
+package com.example.koinfragmenthomework
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.koinfragmenthomework.R
-import com.example.koinfragmenthomework.openFragment
 import com.example.koinfragmenthomework.presintation.fragments.DataFragment
 
 
@@ -15,6 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        openFragment(DataFragment.TAG, R.id.container, DataFragment.newInstance())
+        openFragment(DataFragment.TAG,R.id.container, DataFragment.newInstance())
     }
 }
