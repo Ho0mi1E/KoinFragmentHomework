@@ -13,10 +13,10 @@ open class OSViewModel(private val interactor: OSInteractor) : CommonViewModel<O
 
 
     init {
-        loadOS()
+        load()
     }
 
-    private fun loadOS() {
+    private fun load() {
         _os.value = interactor.putOS()
     }
 }
