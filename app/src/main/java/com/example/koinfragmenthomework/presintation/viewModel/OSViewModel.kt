@@ -4,7 +4,7 @@ package com.example.koinfragmenthomework.presintation.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.koinfragmenthomework.domain.interactors.OSInteractor
-import com.example.koinfragmenthomework.domain.models.OsForView
+import com.example.koinfragmenthomework.domain.models.forView.OsForView
 
 open class OSViewModel(private val interactor: OSInteractor) : CommonViewModel<OsForView>() {
 

@@ -1,15 +1,16 @@
 package com.example.koinfragmenthomework.presintation.fragments
 
+
 import androidx.fragment.app.Fragment
 import com.example.koinfragmenthomework.R
 import com.example.koinfragmenthomework.presintation.viewModel.SharedViewModel
-import com.example.koinfragmenthomework.domain.models.GraphicCardForView
+import com.example.koinfragmenthomework.domain.models.forView.GraphicCardForView
 import com.example.koinfragmenthomework.openFragment
-import com.example.koinfragmenthomework.presintation.bonding.Bonding
-import com.example.koinfragmenthomework.presintation.bottomfragment.BottomFragment
+import com.example.koinfragmenthomework.presintation.recycler.edit.AdapterRecyclerEdit
 import com.example.koinfragmenthomework.presintation.viewModel.GraphicViewModel
 import com.example.koinfragmenthomework.showToast
 import kotlinx.android.synthetic.main.fragment_graphic.*
+import kotlinx.android.synthetic.main.recycler_patern_edit.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -19,37 +20,41 @@ class GraphicFragment : Fragment(R.layout.fragment_graphic) {
         fun newInstance() = GraphicFragment()
     }
 
-    private val bond = object : Bonding<GraphicCardForView> {
-        override fun bonding(item: GraphicCardForView) {
-            editGraphic.setText(item.info)
-        }
-    }
     private val viewModel: GraphicViewModel by viewModel()
 
     private val sharedViewModel: SharedViewModel by sharedViewModel()
 
+    private val adapter by lazy { AdapterRecyclerEdit(this, viewModel, sharedViewModel) }
+
     override fun onStart() {
         super.onStart()
-        openBottom()
+        openRecycler()
         openFragmentGraphicCard()
+
     }
 
-    private fun openBottom() {
-        val fragment = BottomFragment(viewModel, bond)
-        editGraphic.setOnClickListener {
-            fragment.show(requireActivity().supportFragmentManager, BottomFragment.TAG)
+    private fun openRecycler() {
+        sharedViewModel.count.observe(viewLifecycleOwner) { count ->
+            adapter.submit("Видеокарта", count)
         }
+        recyclerEditCard.adapter = adapter
     }
 
     private fun openFragmentGraphicCard() {
         btnGraphic.setOnClickListener {
-            if (editGraphic.text.isEmpty()) {
+            if (editRecycler.text.isEmpty()) {
                 showToast("Выберите Видеокарту")
             } else {
-                sharedViewModel.putGraphic(GraphicCardForView(editGraphic.text.toString()))
-                requireActivity().apply {
-                    openFragment(MonitorFragment.TAG, R.id.container, MonitorFragment.newInstance())
+                sharedViewModel.info.observe(viewLifecycleOwner) { string ->
+                    sharedViewModel.putGraphic(GraphicCardForView(string))
+
                 }
+
+                requireActivity().openFragment(
+                    CountMonitorFragment.TAG,
+                    R.id.container,
+                    CountMonitorFragment.newInstance()
+                )
             }
         }
     }

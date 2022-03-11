@@ -4,12 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 import com.example.koinfragmenthomework.domain.interactors.GraphicCardInteractor
-import com.example.koinfragmenthomework.domain.models.GraphicCardForView
+import com.example.koinfragmenthomework.domain.models.forView.GraphicCardForView
 
 
 class GraphicViewModel(val interactor: GraphicCardInteractor) :
-    CommonViewModel<GraphicCardForView>()
-     {
+    CommonViewModel<GraphicCardForView>() {
     override val data: LiveData<List<GraphicCardForView>> get() = _os
     private val _os = MutableLiveData<List<GraphicCardForView>>()
 

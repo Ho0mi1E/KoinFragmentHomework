@@ -3,7 +3,7 @@ package com.example.koinfragmenthomework.presintation.fragments
 import androidx.fragment.app.Fragment
 import com.example.koinfragmenthomework.R
 import com.example.koinfragmenthomework.presintation.viewModel.SharedViewModel
-import com.example.koinfragmenthomework.domain.models.OsForView
+import com.example.koinfragmenthomework.domain.models.forView.OsForView
 import com.example.koinfragmenthomework.openFragment
 import com.example.koinfragmenthomework.presintation.bonding.Bonding
 import com.example.koinfragmenthomework.presintation.bottomfragment.BottomFragment
@@ -52,7 +52,11 @@ class OSFragment : Fragment(R.layout.fragment_oc) {
             } else {
                 sharedViewModel.putOS(OsForView(editOC.text.toString()))
                 requireActivity().apply {
-                    openFragment(GraphicFragment.TAG, R.id.container, GraphicFragment.newInstance())
+                    openFragment(
+                        CountCardFragment.TAG,
+                        R.id.container,
+                        CountCardFragment.newInstance()
+                    )
                 }
             }
         }

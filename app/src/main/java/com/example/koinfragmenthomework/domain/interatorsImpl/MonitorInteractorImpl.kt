@@ -1,7 +1,7 @@
 package com.example.koinfragmenthomework.domain.interatorsImpl
 
 import com.example.koinfragmenthomework.domain.interactors.MonitorInteractor
-import com.example.koinfragmenthomework.domain.models.MonitorForView
+import com.example.koinfragmenthomework.domain.models.forView.MonitorForView
 import com.example.koinfragmenthomework.domain.repositories.MonitorRepository
 
 class MonitorInteractorImpl(val repository : MonitorRepository) : MonitorInteractor {

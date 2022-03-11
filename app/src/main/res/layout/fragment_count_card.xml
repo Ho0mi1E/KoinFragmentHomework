@@ -4,48 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/editLastName"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="70dp"
-        android:hint="@string/SecondName"
+    <TextView
+        android:id="@+id/textCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Выберите количество видеокарт от 1 до 4"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editName"
+        android:id="@+id/editCount"
         android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="70dp"
-        android:hint="@string/FirstName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLastName" />
-
-    <EditText
-        android:id="@+id/editNumber"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_margin="70dp"
-        android:hint="@string/Number"
+        android:layout_height="100dp"
+        android:layout_margin="100dp"
+        android:hint="Количество видеокарт"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
+        app:layout_constraintTop_toBottomOf="@id/textCount" />
 
     <Button
-        android:id="@+id/btnData"
+        android:id="@+id/btnCount"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_margin="50dp"
+        android:layout_margin="200dp"
         android:text="@string/next"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editCount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
