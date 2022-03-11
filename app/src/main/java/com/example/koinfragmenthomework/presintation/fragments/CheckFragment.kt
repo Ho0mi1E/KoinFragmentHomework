@@ -34,26 +34,28 @@ class CheckFragment : Fragment(R.layout.fragment_check) {
     @SuppressLint("SetTextI18n")
     private fun observer() {
         var message = ""
-        viewModel.user.observe(viewLifecycleOwner) { user ->
-            textInfo.text =
-                "Имя: ${user.name}\nФамилия: ${user.secondName}\nНомер телефона: ${user.number} "
-            message = textInfo.text.toString() + "\n"
-        }
-        viewModel.operationSystem.observe(viewLifecycleOwner) { os ->
-            textOS.text = "Операционная система : ${os.info}"
-            message += textOS.text.toString() + "\n"
-        }
-        viewModel.graphic.observe(viewLifecycleOwner) { graphic ->
-            textGraphic.text = "Видео карта : ${graphic.info}"
-            message += textGraphic.text.toString() + "\n"
-        }
-        viewModel.monitor.observe(viewLifecycleOwner) { monitor ->
-            textMonitor.text = "Монитор : ${monitor.info}"
-            message += textMonitor.text.toString() + "\n"
-        }
-        viewModel.per.observe(viewLifecycleOwner) { checkBox ->
-            textPer.text = "Клавиатура : ${checkBox.keyBoard}\nМышь : ${checkBox.mouse}"
-            message += textPer.text.toString()
+        viewModel.apply {
+            user.observe(viewLifecycleOwner) { user ->
+                textInfo.text =
+                    "Имя: ${user.name}\nФамилия: ${user.secondName}\nНомер телефона: ${user.number} "
+                message = textInfo.text.toString() + "\n"
+            }
+            operationSystem.observe(viewLifecycleOwner) { os ->
+                textOS.text = "Операционная система : ${os.info}"
+                message += textOS.text.toString() + "\n"
+            }
+            graphic.observe(viewLifecycleOwner) { graphic ->
+                textGraphic.text = "Видео карта : ${graphic.info}"
+                message += textGraphic.text.toString() + "\n"
+            }
+            monitor.observe(viewLifecycleOwner) { monitor ->
+                textMonitor.text = "Монитор : ${monitor.info}"
+                message += textMonitor.text.toString() + "\n"
+            }
+            per.observe(viewLifecycleOwner) { checkBox ->
+                textPer.text = "Клавиатура : ${checkBox.keyBoard}\nМышь : ${checkBox.mouse}"
+                message += textPer.text.toString()
+            }
         }
     }
 
